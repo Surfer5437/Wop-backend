@@ -10,6 +10,7 @@ const cors = require('cors');
 
 const companyRoutes = require("./routes/companies");
 const usersRoutes = require("./routes/users");
+const workOrdersRoutes = require("./routes/workorders");
 const app = express();
 app.use(express.json());
 // Enable CORS for all routes
@@ -29,6 +30,7 @@ app.use(morgan('dev'));
 app.options('*', cors());
 app.use("/companies",companyRoutes);
 app.use("/users",usersRoutes);
+app.use("/allworkorders",workOrdersRoutes);
 app.get('/', function (req, res) {
     res.send('Home Page')
   })
