@@ -21,12 +21,7 @@
       },
       "tax_id": {
         "type": "string",
-        "pattern": "^[A-Z0-9]{10}$",
         "description": "The tax identification number of the company. Should be an alphanumeric string of length 10."
-      },
-      "user_id": {
-        "type": "integer",
-        "description": "The user id associated with the company."
       }
     },
     "required": [],

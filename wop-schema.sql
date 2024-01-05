@@ -11,8 +11,8 @@ CREATE TABLE companies(
   name text NOT NULL,
   address text NOT NULL,
   contact_name text,
-  phone_number varchar(10),
-  tax_id varchar(10),
+  phone_number text,
+  tax_id text,
   user_id integer
 );
 
@@ -31,3 +31,4 @@ CREATE TABLE pdf_file(
   id serial PRIMARY KEY,
   uri text NOT NULL
 );
+

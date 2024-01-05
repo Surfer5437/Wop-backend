@@ -24,7 +24,7 @@ class Company {
    * Throws BadRequestError if company name already in database.
    * */
 
-static async create({ name, address, contact_name, phone_number, tax_id, user_id }) {
+static async create({ name, address, contact_name, phone_number, tax_id }) {
     const duplicateCheck = await db.query(
           `SELECT name
            FROM companies
@@ -36,7 +36,7 @@ static async create({ name, address, contact_name, phone_number, tax_id, user_id
 
     const result = await db.query(
           `INSERT INTO companies
-           (name, address, contact_name, phone_number, tax_id, user_id)
+           (name, address, contact_name, phone_number, tax_id)
            VALUES ($1, $2, $3, $4, $5)
            RETURNING id, name, address, contact_name, phone_number, tax_id`,
         [
@@ -44,8 +44,7 @@ static async create({ name, address, contact_name, phone_number, tax_id, user_id
           address, 
           contact_name, 
           phone_number, 
-          tax_id,
-          user_id
+          tax_id
         ],
     );
     return result.rows[0];
@@ -76,8 +75,7 @@ static async update(id, data) {
                     address,
                     contact_name,
                     phone_number,
-                    tax_id,
-                    user_id`;
+                    tax_id`;
   const result = await db.query(querySql, [...values, id]);
 const company = result.rows[0];
   if (!company) {
