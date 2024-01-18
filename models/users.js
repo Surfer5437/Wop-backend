@@ -1,7 +1,6 @@
 "use strict";
 
 const db = require("../db");
-
 const { sqlForPartialUpdate } = require("../helpers/sql");
 const {
   NotFoundError,
@@ -68,6 +67,43 @@ static async get(username) {
   user.company = company;
   return user;
 };
+
+/** Create a User (from data), update db, return new user data.
+   *
+   * data should be { id |  username      |      email       | is_admin }
+   *
+   * Returns { id |  username  |      email       | is_admin }
+   *
+   * Throws BadRequestError if user_name name already in database.
+   * */
+
+static async create({ data }) {
+ 
+  // const duplicateCheck = await db.query(
+  //       `SELECT username
+  //        FROM companies
+  //        WHERE name = $1`,
+  //     [name]);
+
+  // if (duplicateCheck.rows[0])
+  //   throw new BadRequestError(`Duplicate company: ${name}`);
+
+  // const result = await db.query(
+  //       `INSERT INTO companies
+  //        (name, address, contact_name, phone_number, tax_id)
+  //        VALUES ($1, $2, $3, $4, $5)
+  //        RETURNING id, name, address, contact_name, phone_number, tax_id`,
+  //     [
+  //       name,
+  //       address, 
+  //       contact_name, 
+  //       phone_number, 
+  //       tax_id
+  //     ],
+  // );
+  // return result.rows[0];
+}
+
 }
 
 module.exports = User;

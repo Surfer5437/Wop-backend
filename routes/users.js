@@ -29,7 +29,7 @@ router.get("/", async function (req, res, next) {
  * Authorization required: admin or same user-as-:username
  **/
 
-router.get("/:username", async function (req, res, next) {
+  router.get("/:username", async function (req, res, next) {
     try {
       const user = await User.get(req.params.username);
       return res.json({ user });
@@ -37,5 +37,23 @@ router.get("/:username", async function (req, res, next) {
       return next(err);
     }
   });
+
+   /** GET /[username] => { user }
+ *
+ * Returns { username, firstName, lastName, isAdmin, company }
+ *   where company is { name, address, contact_name, phone_number, tax_id }
+ *
+ * Authorization required: admin or same user-as-:username
+ **/
+
+   router.post("/newUserEmail", async function (req, res, next) {
+    try {
+      const user = await User.create(req.body);
+      return res.json({ user });
+    } catch (err) {
+      return next(err);
+    }
+  });
+
 
 module.exports = router;

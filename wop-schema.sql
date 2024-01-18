@@ -12,6 +12,7 @@ CREATE TABLE companies(
   address text NOT NULL,
   contact_name text,
   phone_number text,
+  email text NOT NULL CHECK (position('@' IN email) > 1),
   tax_id text,
   user_id integer
 );

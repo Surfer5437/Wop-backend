@@ -1,4 +1,5 @@
-{
+
+  {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "properties": {
@@ -26,9 +27,14 @@
       "user_id": {
         "type": "integer",
         "description": "The user id associated with the company."
+      },
+      "email": {
+        "type": "string",
+        "format": "email",
+        "description": "The email address associated with the company."
       }
     },
-    "required": ["name", "address", "contact_name", "phone_number"],
+    "required": ["name", "address", "contact_name", "phone_number", "email"],
     "additionalProperties": false
   }
   

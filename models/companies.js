@@ -9,7 +9,7 @@ class Company {
    * */
     static async findAll() {
         let query = await db.query(
-          `SELECT id, name, address, contact_name, phone_number, tax_id, user_id
+          `SELECT id, name, address, contact_name, phone_number, tax_id, user_id, email
                      FROM companies`
         );
     return query.rows;
@@ -100,7 +100,8 @@ static async get(id) {
                 contact_name,
                 phone_number,
                 tax_id,
-                user_id
+                user_id,
+                email
          FROM companies
          WHERE id = $1`,
       [id]);
