@@ -14,7 +14,8 @@ CREATE TABLE companies(
   phone_number text,
   email text NOT NULL CHECK (position('@' IN email) > 1),
   tax_id text,
-  user_id integer
+  user_id integer,
+  register_link text
 );
 
 CREATE TABLE service(

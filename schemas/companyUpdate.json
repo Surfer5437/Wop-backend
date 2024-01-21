@@ -27,6 +27,10 @@
         "type": "string",
         "format": "email",
         "description": "The email address associated with the company."
+      },
+      "register_link": {
+        "type": "string",
+        "description": "The handle assosiated for the company to register a new user."
       }
     },
     "required": [],

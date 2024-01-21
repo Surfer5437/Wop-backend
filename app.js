@@ -1,6 +1,6 @@
 "use strict";
 
-/** Express app for invoice manager. */
+/** Express app for work order portal. */
 
 const express = require("express");
 // Use morgan middleware to log requests
@@ -28,14 +28,14 @@ app.use(cors({
 }));
 app.use(morgan('dev'));
 app.options('*', cors());
-app.use("/companies",companyRoutes);
-app.use("/users",usersRoutes);
-app.use("/allworkorders",workOrdersRoutes);
+app.use("/companies", companyRoutes);
+app.use("/users", usersRoutes);
+app.use("/allworkorders", workOrdersRoutes);
 app.get('/', function (req, res) {
-    res.send('Home Page')
-  })
+  res.send('Home Page')
+})
 
-  /** Generic error handler; anything unhandled goes here. */
+/** Generic error handler; anything unhandled goes here. */
 app.use(function (err, req, res, next) {
   if (process.env.NODE_ENV !== "test") console.error(err.stack);
   const status = err.status || 500;
