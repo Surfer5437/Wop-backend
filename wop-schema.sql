@@ -23,7 +23,7 @@ CREATE TABLE service(
   date date NOT NULL,
   -- date is stored yyyy-mm-dd
   service_type text NOT NULL,
-  pdf_file_id integer NOT NULL,
+  pdf_file_id INT[],
   company_id integer NOT NULL,
   po_number text,
   invoice_number text

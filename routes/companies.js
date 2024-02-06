@@ -16,26 +16,27 @@ const { BadRequestError } = require("../expressError");
  * 
  * Authorization required: admin
  */
-router.get("/", async function (req, res, next) {
-    try {
-      const companies = await Company.findAll();
-      return res.json({ companies });
-    } catch (err) {
-      return next(err);
-    }
-  });
 
-  /** GET /[handle]  =>  { company }
- *
-   * Returns { name, address, contact_name, phone_number, tax_id, and user of the company}
-   *   where user is [{ id, username, email, is_admin }, ...]
- *
- * Authorization required: none
- */
+router.get("/", async function (req, res, next) {
+  try {
+    const companies = await Company.findAll();
+    return res.json({ companies });
+  } catch (err) {
+    return next(err);
+  }
+});
+
+/** GET /[handle]  =>  { company }
+*
+ * Returns { name, address, contact_name, phone_number, tax_id, and user of the company}
+ *   where user is [{ id, username, email, is_admin }, ...]
+*
+* Authorization required: none
+*/
 
 router.get("/:id", async function (req, res, next) {
   try {
-    
+
     const company = await Company.get(req.params.id);
     return res.json({ company });
   } catch (err) {
@@ -43,14 +44,14 @@ router.get("/:id", async function (req, res, next) {
   }
 });
 
-  /** POST / { company } =>  { company }
- *
- * company should be { name, address, contact_name, phone_number, tax_id }
- *
- * Returns { name, address, contact_name, phone_number, tax_id }
- *
- * Authorization required: admin
- */
+/** POST / { company } =>  { company }
+*
+* company should be { name, address, contact_name, phone_number, tax_id }
+*
+* Returns { name, address, contact_name, phone_number, tax_id }
+*
+* Authorization required: admin
+*/
 
 router.post("/", async function (req, res, next) {
   try {
@@ -91,7 +92,5 @@ router.patch("/:id", async function (req, res, next) {
     return next(err);
   }
 });
-
-  
 
 module.exports = router;

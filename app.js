@@ -11,6 +11,7 @@ const cors = require('cors');
 const companyRoutes = require("./routes/companies");
 const usersRoutes = require("./routes/users");
 const workOrdersRoutes = require("./routes/workorders");
+const upload = require("./routes/uploads");
 const app = express();
 app.use(express.json());
 // Enable CORS for all routes
@@ -31,6 +32,7 @@ app.options('*', cors());
 app.use("/companies", companyRoutes);
 app.use("/users", usersRoutes);
 app.use("/allworkorders", workOrdersRoutes);
+app.use("/upload", upload);
 app.get('/', function (req, res) {
   res.send('Home Page')
 })

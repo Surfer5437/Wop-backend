@@ -27,16 +27,16 @@ INSERT INTO companies(name, address, contact_name, phone_number, tax_id, user_id
 
 -- Inserting sample service table
 INSERT INTO service(date, service_type, company_id, po_number, invoice_number, pdf_file_id)
-    VALUES ('2023-05-10', 'inspection', 1, 'po1564', 'inv456', 2),
-('2023-02-24', 'maintenance', 2, 'po7862', 'inv456', 1),
-('2023-12-05', 'preventative', 3, 'po4912', 'inv456', 3),
-('2023-08-15', 'repair', 4, 'po9823', 'inv456', 4),
-('2023-06-30', 'consultation', 5, 'po2345', 'inv456', 5),
-('2023-04-15', 'upgrade', 6, 'po6789', 'inv456', 6),
-('2023-09-20', 'installation', 7, 'po3456', 'inv456', 7),
-('2023-11-12', 'training', 8, 'po7890', 'inv456', 8),
-('2023-07-05', 'emergency', 9, 'po1234', 'inv456', 9),
-('2023-10-18', 'testing', 10, 'po5678', 'inv456', 10);
+    VALUES ('2023-05-10', 'inspection', 1, 'po1564', 'inv456', '{2}'),
+('2023-02-24', 'maintenance', 2, 'po7862', 'inv456', '{1}'),
+('2023-12-05', 'preventative', 3, 'po4912', 'inv456', '{3, 8}'),
+('2023-08-15', 'repair', 4, 'po9823', 'inv456', '{4, 5}'),
+('2023-06-30', 'consultation', 5, 'po2345', 'inv456', '{5}'),
+('2023-04-15', 'upgrade', 6, 'po6789', 'inv456', '{6}'),
+('2023-09-20', 'installation', 7, 'po3456', 'inv456', '{7}'),
+('2023-11-12', 'training', 8, 'po7890', 'inv456', '{8}'),
+('2023-07-05', 'emergency', 9, 'po1234', 'inv456', '{9}'),
+('2023-10-18', 'testing', 10, 'po5678', 'inv456', '{10}');
 
 -- Inserting default roles
 INSERT INTO pdf_file(uri)

@@ -109,10 +109,6 @@ class User {
     await Company.registerUserForCompany(company_name, null)
     return companyResult.rows[0];
   }
-
-
-
-
 }
 
 module.exports = User;
